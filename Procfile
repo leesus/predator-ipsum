@@ -1,1 +1,1 @@
-web: bundle exec ruby config.ru -p 4567
+web: bundle exec ruby config.ru -p $PORT
