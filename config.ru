@@ -7,4 +7,4 @@ set :views, File.dirname(__FILE__) + "/views"
 set :public_folder, "public"
 
 require "./app"
-Sinatra::Application.run!
+run Sinatra::Application

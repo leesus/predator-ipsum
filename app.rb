@@ -17,9 +17,10 @@ get '/' do
   haml :index
 end
 
-post '/custom' do  
+post '/custom' do
+  @include_lorem = params["include_lorem"].to_s
   @paragraphs = generate_ipsum(params["paragraphs"].to_i, params["quotes"].to_i)
-  haml :index
+  haml :index, :layout => (request.xhr? ? false : :layout)
 end
 
 

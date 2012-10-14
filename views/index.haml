@@ -1,14 +1,4 @@
-%form{:action => '/custom', :method => 'post'}
-	%legend
-		Create a custom output.
-	%p
-		%label{:for => "paragraphs"} How many paragraphs would you like?
-		%input{:type => "textbox", :name => "paragraphs", :id => "paragraphs"}
-	%p
-		%label{:for => "quotes"} How many quotes per paragraph?
-		%input{:type => "textbox", :name => "quotes", :id => "quotes"}
-	%p
-		%input{:type => "submit", :value => "Generate Predator Ipsum!"}
-
-- @paragraphs.each do |paragraph|
-	%p #{paragraph}
+%a{title:"copy to clipboard", href: "#", id: "copy-to-clipboard"} Copy to clipboard
+#output
+	- @paragraphs.each do |paragraph|
+		%p #{paragraph}
