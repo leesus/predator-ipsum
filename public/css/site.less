@@ -1,0 +1,39 @@
+body{margin:0;padding:0;background:#0c0200 url(../images/background.png) 0 0 repeat-x;font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;color:#fff}
+#container{width:960px;margin:0 auto;padding:0 20px;background:url(../images/header-trans.png) 0 0 no-repeat;
+	#app-header{height:410px;padding:30px 0 0;
+		h1{font:6em Predator;color:#fff;text-align:center;text-shadow:1px 1px 0 #000;margin:0 0 0.75em}
+		form{height:270px;font:1.8em Impact;color:#fff;text-transform:uppercase;letter-spacing:1px;font-weight:normal;
+			p{text-shadow:1px 2px 0px #a40500;width:488px;padding:6px 0;
+				label{height:28px}
+				&.text{background:url(../images/form-elements.png) right -39px no-repeat;width:460px;
+					label{}
+					input{width:50px;height:27px;float:right;margin:-1px 35px 0 0;font-family:Impact;text-align:center;color:#fff;background:transparent;border:0 none}
+				}
+				&.checkbox{background:url(../images/form-elements.png) 0 -78px no-repeat;
+					label{}
+					input{margin:0 20px 0 15px;position:relative;top:-2px}
+				}
+				&.submit{background:url(../images/form-elements.png) 0 -116px no-repeat;padding:10px 20px;
+					input{font-family:Impact;text-align:center;color:#fff;background:transparent;border:0 none;text-transform:uppercase;color:#eee;
+						&:hover{color:#fff}
+					}
+				}
+			}
+		}
+	}
+	#main{text-shadow:1px 1px 0 #000;
+		a#copy-to-clipboard{float:right;height:20px;width:128px;background:url(../images/form-elements.png) 0 0 no-repeat;padding:10px 5px 10px 15px;font:1.4em Impact;text-transform:uppercase;color:#eee;margin:0 0 1em;text-decoration:none;
+			&:hover{color:#fff}
+		}
+		#output{clear:both;
+			p{font:1.6em/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif}
+		}
+	}
+	#app-footer{margin:2em 0 0;text-align:center;
+		p{font:1.1em Arial;color:#ccc;
+			a{color:#fff;text-decoration:dotted;
+				&:hover{text-decoration:none}
+			}
+		}
+	}
+}
