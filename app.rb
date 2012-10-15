@@ -18,21 +18,37 @@ get '/' do
 end
 
 post '/custom' do
-  @include_lorem = params["include_lorem"].to_s
-  @paragraphs = generate_ipsum(params["paragraphs"].to_i, params["quotes"].to_i)
+  paras = params["paragraphs"].to_i
+  quotes = params["quotes"].to_i
+  ipsum = !params["include_ipsum"].nil?
+  safe_for_work = !params["safe_for_work"].nil?
+  @paragraphs = generate_ipsum(paras, quotes, ipsum, safe_for_work)
   haml :index, :layout => (request.xhr? ? false : :layout)
 end
 
 
 
 private
-def generate_ipsum(paragraph_count = 5, quotes_per_paragraph_count = 10)
+def generate_ipsum(paragraph_count = 1, quotes_per_paragraph_count = 10, include_ipsum = false, safe_for_work = false)
   quotes_array = []
+  profanity = /\bass|\bfuck|\bpussy|\bbitch|\bcunt|\btwat|\bbullshit|\bbastard|\bmotherfucker|\bfaggots/i
   
   # open file and create each line as element in array
   File.open('./quotes.txt', 'r') do |file|
-    file.each do |line|
-      quotes_array << line.strip
+    file.each do |line|      
+      if safe_for_work && (profanity.match(line))
+        next
+      else
+        quotes_array << line.strip
+      end
+    end
+  end
+  
+  if include_ipsum
+    File.open('./lorem.txt', 'r') do |file|
+      file.each do |line|
+        quotes_array << line.strip
+      end
     end
   end
   
@@ -43,7 +59,11 @@ def generate_ipsum(paragraph_count = 5, quotes_per_paragraph_count = 10)
     paragraph = ''
     
     (1..quotes_per_paragraph_count).each do
-      paragraph << quotes_array.sample << ' '
+      sample = quotes_array.sample
+      while paragraph.include? sample
+        sample = quotes_array.sample
+      end
+      paragraph << sample << ' '
     end
     
     paragraph_array << paragraph

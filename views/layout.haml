@@ -2,35 +2,37 @@
 %html
 	%head
 		%title Predator Ipsum
-		%link{:type => 'text/css', :rel => 'stylesheet', :href => 'css/app.css'}
+		%link{:type => 'text/css', :rel => 'stylesheet', :href => 'css/fonts.css'}
+		%link{:type => 'text/css', :rel => 'stylesheet', :href => 'css/boilerplate.css'}
+		%link{:type => 'text/css', :rel => 'stylesheet', :href => 'css/site.css'}
 	%body
-		%h1 Predator Ipsum
+		#container
+			%header#app-header
+				%h1 Predator Ipsum
+				%form{:action => '/custom', :method => 'post'}
+					%p.text
+						%label{:for => "paragraphs"} How many paragraphs do you want?
+						%input{:type => "textbox", :name => "paragraphs", :id => "paragraphs", :value => '5'}
+					%p.text
+						%label{:for => "quotes"} How many quotes per paragraph?
+						%input{:type => "textbox", :name => "quotes", :id => "quotes", :value => '10'}
+					%p.checkbox
+						%label{:for => "include_ipsum"}
+							%input{:type => "checkbox", :name => "include_ipsum", :id => "include_ipsum"}
+							Mix with lorem ipsum? It just doesn't make sense...
+					%p.checkbox
+						%label{:for => "safe_for_work"}
+							%input{:type => "checkbox", :name => "safe_for_work", :id => "safe_for_work"}
+							Safe for work? What is this fucking tie business?
+					%p.submit
+						%input{:type => "submit", :value => "Generate! Come on! Do it now!"}
 		
-		#main
-			%form{:action => '/custom', :method => 'post'}
-				%p
-					%label{:for => "paragraphs"} How many paragraphs do you want?
-					%input{:type => "textbox", :name => "paragraphs", :id => "paragraphs", :value => '5'}
-				%p
-					%label{:for => "quotes"} How many quotes per paragraph?
-					%input{:type => "textbox", :name => "quotes", :id => "quotes", :value => '10'}
-				%p
-					%label{:for => "include_lorem"}
-						%input{:type => "checkbox", :name => "include_lorem", :id => "include_lorem"}
-						Mix with lorem ipsum? It just doesn't make sense...
-				%p
-					%label{:for => "safe_for_work"}
-						%input{:type => "checkbox", :name => "safe_for_work", :id => "safe_for_work"}
-						Safe for work? What is this fucking tie business?
-				%p
-					%input{:type => "submit", :value => "Generate! Come on! Do it now!"}
-					
-			= yield
+			%section#main					
+				= yield
 		
-		%footer#app-footer
-			%p
-			:markdown
-				Inspired by [Arnold Ipsum](http://www.arnoldipsum.com "Arnold Ipsum"). Built by [Lee Ellam](http://www.lee-ellam.com "Lee Ellam"). View project on [github](https://github.com/leesus/predator-ipsum "View predator-ipsum repo on github").
+			%footer#app-footer
+				:markdown
+					Inspired by [Arnold Ipsum](http://www.arnoldipsum.com "Arnold Ipsum"). Built by [Lee Ellam](http://www.lee-ellam.com "Lee Ellam"). View project on [github](https://github.com/leesus/predator-ipsum "View predator-ipsum repo on github").
 			
 		%script{:type => 'text/javascript', :src => ''}
 			
