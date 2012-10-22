@@ -3,7 +3,7 @@ body{margin:0;padding:0;background:#0c0200 url(../images/background.png) 0 0 rep
 	#app-header{height:410px;padding:30px 0 0;
 		h1{font:6em Predator;color:#fff;text-align:center;text-shadow:1px 1px 0 #000;margin:0 0 0.75em}
 		form{height:270px;font:1.8em Impact;color:#fff;text-transform:uppercase;letter-spacing:1px;font-weight:normal;
-			p{text-shadow:1px 2px 0px #a40500;width:488px;padding:6px 0;
+			p{text-shadow:1px 2px 0px #a40500;width:500px;padding:6px 0;
 				label{height:28px}
 				&.text{background:url(../images/form-elements.png) right -39px no-repeat;width:460px;
 					label{}
@@ -21,12 +21,14 @@ body{margin:0;padding:0;background:#0c0200 url(../images/background.png) 0 0 rep
 			}
 		}
 	}
-	#main{text-shadow:1px 1px 0 #000;
+	#main{text-shadow:1px 1px 0 #000;position:relative;
+		img.loading-image{display:block;width:64px;height:64px;position:relative;left:50%;margin:20px 0 200px -32px}
 		a#copy-to-clipboard{float:right;height:20px;width:128px;background:url(../images/form-elements.png) 0 0 no-repeat;padding:10px 5px 10px 15px;font:1.4em Impact;text-transform:uppercase;color:#eee;margin:0 0 1em;text-decoration:none;
 			&:hover{color:#fff}
 		}
 		#output{clear:both;
 			p{font:1.6em/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif}
+			#text-to-copy{position:absolute;left:-9999em}
 		}
 	}
 	#app-footer{margin:2em 0 0;text-align:center;
@@ -35,5 +37,8 @@ body{margin:0;padding:0;background:#0c0200 url(../images/background.png) 0 0 rep
 				&:hover{text-decoration:none}
 			}
 		}
+	}
+	#copy-instructions{display:none;width:315px;height:85px;position:fixed;top:50%;left:50%;margin:-43px 0 0 -158px;padding:30px;background:url(../images/copy-background.png) 0 0 no-repeat;
+		p{text-shadow:1px 2px 0px #a40500;font:1.8em Impact;color:#fff;text-transform:uppercase;letter-spacing:1px;font-weight:normal;margin:10px 8px}
 	}
 }

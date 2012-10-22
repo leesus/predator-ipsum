@@ -1,4 +1,7 @@
-%a{title:"copy to clipboard", href: "#", id: "copy-to-clipboard"} Copy to clipboard
+%a{title:"copy to clipboard", href: "#", id: "copy-to-clipboard", class: "copy"} Copy to clipboard
 #output
 	- @paragraphs.each do |paragraph|
 		%p #{paragraph}
+	%textarea#text-to-copy
+		- @paragraphs.each do |paragraph|
+			#{paragraph}

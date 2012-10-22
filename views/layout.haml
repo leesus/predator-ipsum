@@ -27,12 +27,18 @@
 					%p.submit
 						%input{:type => "submit", :value => "Generate! Come on! Do it now!"}
 		
-			%section#main					
+			%section#main
 				= yield
-		
+			
 			%footer#app-footer
 				:markdown
 					Inspired by [Arnold Ipsum](http://www.arnoldipsum.com "Arnold Ipsum"). Built by [Lee Ellam](http://www.lee-ellam.com "Lee Ellam"). View project on [github](https://github.com/leesus/predator-ipsum "View predator-ipsum repo on github").
+					
+			#copy-instructions
+				%p Click CMD + C / CTRL + C to copy
+					
 			
-		%script{:type => 'text/javascript', :src => ''}
+			
+		%script{:type => 'text/javascript', :src => 'https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js'}
+		%script{:type => 'text/javascript', :src => 'js/app.js'}
 			
